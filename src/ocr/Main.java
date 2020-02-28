@@ -2,19 +2,23 @@ package ocr;
 
 import java.io.File;
 import net.sourceforge.tess4j.*;
+import javax.swing.JFileChooser;
 
 /**
  *
  * @author Guilherme Esteves
- * 
- * Script cappable of converting embedded image texts into editable text
+ *
+ * Script cappable of converting embedded image texts into editable text 
  * Tess4J v3.4.8
- * 
+ *
  */
+
 public class Main {
-    
+
     public static void main(String[] args) {
-        File image = new File("teste.png");
+        JFileChooser chooser = new JFileChooser();
+        chooser.showOpenDialog(null);
+        File image = chooser.getSelectedFile();
         Tesseract instance = new Tesseract();
 
         try {
@@ -25,7 +29,5 @@ public class Main {
             System.err.println(e.getMessage());
         }
     }
-    
+
 }
-
-
